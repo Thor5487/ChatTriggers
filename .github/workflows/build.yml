@@ -20,7 +20,7 @@ jobs:
           distribution: temurin
           java-version: 8
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
           path: |
             ~/.gradle/caches
@@ -37,7 +37,7 @@ jobs:
         run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
       - name: Publish Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: ChatTriggers-artifacts-${{ steps.sha.outputs.sha_short }}
           path: |
